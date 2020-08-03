@@ -1,0 +1,22 @@
+{
+    "typesAndColor" : {
+      "steel": "#4ab790",
+      "fire": "#fb4d5c",
+      "grass": "#21ca54",
+      "electric": "#f8fb70",
+      "water": "#86a6fb",
+      "ice": "#86d1f7",
+      "ground": "#a57130",
+      "rock": "#883d1f",
+      "fairy": "#e71568",
+      "poison": "#9b68de",
+      "bug": "#3c9850",
+      "dragon": "#458898",
+      "psychic": "#a62978",
+      "flying": "#93b2c6",
+      "fighting": "#ef6139",
+      "normal": "#c297a1",
+      "ghost": "#916691",
+      "dark": "#595975"
+    }
+}
