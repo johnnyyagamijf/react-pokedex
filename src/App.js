@@ -64,13 +64,7 @@ function App() {
     <>
       <Header />
       <div className="container">
-        <select onChange={(e) => setLimit(e.target.value)}>
-          <option value="20">20</option>
-          <option value="30">30</option>
-          <option value="40">40</option>
-          <option value="50">50</option>
-        </select>
-        <ul data-js="pokedex" className="pokedex">
+          <ul data-js="pokedex" className="pokedex">
           {
             pokemons.map(pokemon => (
               <ListPokemons key={pokemon.id} pokemon={pokemon} />
