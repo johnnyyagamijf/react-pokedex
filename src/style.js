@@ -15,7 +15,8 @@ export const PaginationItem= styled.div`
 margin: 0 10px;
 cursor: pointer;
 ${(props) => props.isSelect && {
-    background: '#6d6d6d',
+    background: 'none',
+    border: '1px solid #058cff',
     padding: '0 5px'
 }}
 `;

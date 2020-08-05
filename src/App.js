@@ -12,13 +12,14 @@ import Header from './componentes/Header';
 
 function App() {
   const [pokemons, setPokemons] = useState([]);
-  const [total, setTotal] = useState(964);
+  const [total, setTotal] = useState(60);
   const [limit, setLimit] = useState(20);
   const [pages, setPages] = useState([]);
   const [currents, setCurrentPage] = useState({currentPage: 1, offSetPage: 0 });
 
   useEffect(() => {
     async function onLoad() {
+      console.log('currents.currentPage', currents.currentPage)
       const listPokemons = await getListPokemons();
       const totalPage = Math.ceil(total / limit);
       const arrayPages = [];
@@ -40,18 +41,21 @@ function App() {
         const atributes = listPokemons.results[i].url.split('/');
         const id = (atributes[atributes.length - 1] !== '') ? atributes[atributes.length - 1] : atributes[atributes.length - 2];
         const response = await api.get(`/pokemon/${id}`);
+
         list.push(response.data)
       }
       catch (err) {
         console.error(err);
       }
     }
-
+//https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/female/10133.png
     setPokemons(list);
   }
 
   async function onChangePage(numPage){
-    const offSet =  numPage == 1 ?  0 :  numPage * 19;
+    console.log('numPage', numPage);
+    const offSet =  numPage == 1 ?  0 :  (numPage - 1) * 20;
+    console.log('offSet', offSet);
      await setCurrentPage({currentPage: numPage, offSetPage: offSet});
   }
   
@@ -77,7 +81,7 @@ function App() {
             <PaginationButton>
              {
                currents.currentPage > 1 && (
-                <PaginationItem onClick={(e) => setCurrentPage( {currentPage: currents.currentPage - 1} )}>Previous</PaginationItem>
+                <PaginationItem onClick={(e) => onChangePage(currents.currentPage - 1 )}>Previous</PaginationItem>
                )
              }
               {
@@ -90,7 +94,7 @@ function App() {
               }
               {
                 currents.currentPage < pages.length && (
-                  <PaginationItem onClick={(e) => setCurrentPage( {currentPage: currents.currentPage + 1} )}>Next</PaginationItem>
+                  <PaginationItem onClick={(e) => onChangePage(currents.currentPage  + 1 )}>Next</PaginationItem>
                 )
               }
              </PaginationButton>
