@@ -12,15 +12,11 @@ export const PaginationButton = styled.div`
 `;
 
 export const PaginationItem= styled.div`
-margin: 0 5px;
+margin: 0 10px;
 cursor: pointer;
-&:hover {
-    color: #5ba5bb;
-  }
 ${(props) => props.isSelect && {
     background: 'none',
     border: '1px solid #058cff',
-    padding: '0 5px',
-    
+    padding: '0 5px'
 }}
 `;
