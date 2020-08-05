@@ -1,5 +1,4 @@
 .header{
-    width: 100%;
     background-color: #da552f;
     height: 120px;
     font-size: 18px;
@@ -8,5 +7,4 @@
     justify-content: center;
     display: flex;
     align-items: center;
-    
 }

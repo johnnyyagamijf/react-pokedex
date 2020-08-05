@@ -1,16 +1,31 @@
 import React from 'react';
-import {PaginationStyle, PaginationButton, PaginationItem} from '../style';
+import {Pagination, PaginationButton, PaginationItem} from './style';
 
-
-export default function Pagination({page}){
+export default ({pages, onChangePage, total, currentPage}) => {
     return (
-        <PaginationStyle>
-            {/* <div>Qtd {0}</div> */}
+        <Pagination>
             <PaginationButton>
-                <PaginationItem>{page}</PaginationItem>
+              {
+                currentPage > 1 && (
+                  <PaginationItem onClick={(e) => onChangePage(currentPage - 1)}>Previous</PaginationItem>
+                )
+              }
+              {
+                pages.map((page, index) => (
+                  <PaginationItem
+                    isSelect={page === currentPage}
+                    key={index}
+                    onClick={(e) => onChangePage(page)}>{page}</PaginationItem>
+                ))
+              }
+              {
+                currentPage < pages.length && (
+                  <PaginationItem onClick={(e) => onChangePage(currentPage + 1)}>Next</PaginationItem>
+                )
+              }
             </PaginationButton>
-        </PaginationStyle>
-
+          </Pagination>
     );
 }
+
 

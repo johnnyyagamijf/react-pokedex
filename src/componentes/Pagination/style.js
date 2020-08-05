@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const Pagination = styled.div`
     display: flex;
-    min-width: 500px;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     color: #000;
 `;
 
@@ -12,7 +12,7 @@ export const PaginationButton = styled.div`
 `;
 
 export const PaginationItem= styled.div`
-margin: 0 10px;
+margin: 0 5px;
 cursor: pointer;
 ${(props) => props.isSelect && {
     background: 'none',
