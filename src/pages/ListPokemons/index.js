@@ -7,7 +7,8 @@ import listColors from '../../services/index.json';
 function ListPokemons({ pokemon }) {
     const { id, name, types } = pokemon;
     const elementsTypes = types.map(typeInfo => typeInfo.type.name);
-    const colors = getColorsForType(elementsTypes)
+    const colors = 
+    (elementsTypes)
 
     function getColorsForType(elementsTypes) {
         let colorsw = [];

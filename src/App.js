@@ -22,7 +22,7 @@ function App() {
     async function onLoad() {
       const listPokemons = await getListPokemons();
 
-      const totalPage = Math.ceil(total / limit);
+      const totalPage = Math.ceil((total - ignoreIds.length) / limit);
       const arrayPages = [];
 
       for (let i = 1; i <= totalPage; i++) {
