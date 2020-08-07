@@ -18,8 +18,8 @@ export default ({ showModal, name, image, types, moves, weight, height}) => {
                     <img className="avatar" src={image} alt="" />
                     <div class="dados">
                         <p>Skills: {moves}</p>
-                        <p>Weight: {weight}</p>
-                        <p>Height: {height}</p>
+                        <p>Weight: {weight / 10}kg</p>
+                        <p>Height: {height / 10}m</p>
                     </div>
                    </div>
             </div>

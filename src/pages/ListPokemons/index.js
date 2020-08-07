@@ -33,7 +33,6 @@ function ListPokemons({ pokemon }) {
                 <h2 className="card-title">{id}. {name}</h2>
                 <p className="card-subtitle">{elementsTypes.join(' | ')}</p>
             </li>
-
             {
                 modalShow && (
                     <Modal showModal={setModalShow}
