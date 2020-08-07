@@ -1,14 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;1,700&display=swap');
 .modal-container {
     width: 100vw;
-    height: 100vh;
+    height:100vh;
+    top: 100vw/2;
     background: rgba(0,0,0,.5);
-    top: 0px;
-    left: 0px;
+    position: absolute;
     z-index: 2000;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    
 }
 
 .modal-container.mostrar {
@@ -19,20 +20,28 @@
     background: white;
     width: 60%;
     min-width: 300px;
-    padding: 40px;
+    padding: 10px;
     border: 10px solid #988b7a;
     box-shadow: 0 0 0 10px white;
-    position: relative;
     display: flex;
-    flex-direction: column;
+     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    color: red;
+    align-items: center; 
+    position: relative;
 }
 
-.modal img{
+.subtitulo{
+    text-transform: capitalize;
+}
+
+.modal .avatar{
 width: 300px;
 height: 300px;
+}
+
+.detalhes{
+    width: 150px;
+    height: 100px;
 }
 
 

@@ -8,9 +8,12 @@ import Modal from '../../componentes/Modal';
 
 function ListPokemons({ pokemon }) {
     const [modalShow, setModalShow] = React.useState(false);
-    const { id, name, types } = pokemon;
+    const { id, name, types, moves, weight, height} = pokemon;
     const elementsTypes = types.map(typeInfo => typeInfo.type.name);
+    const elementsmoves = moves.map(move => move.move.name)
     const colors = getColorsForType(elementsTypes);
+
+    console.log('movimentos', elementsmoves)
 
 
     function getColorsForType(elementsTypes) {
@@ -37,6 +40,9 @@ function ListPokemons({ pokemon }) {
                     name={name} 
                     image={`https://pokeres.bastionbot.org/images/pokemon/${id}.png`}
                     types={elementsTypes.join(' | ')}
+                    moves={elementsmoves.join(', ')}
+                    weight={weight}
+                    height={height}
                      />
                     )
             }
