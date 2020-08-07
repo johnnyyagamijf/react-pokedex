@@ -11,7 +11,7 @@ function ListPokemons({ pokemon }) {
     const { id, name, types, moves, weight, height} = pokemon;
     const elementsTypes = types.map(typeInfo => typeInfo.type.name);
     const elementsmoves = moves.map(move => move.move.name)
-    const colors = getColorsForType(elementsTypes);
+    const background = `linear-gradient(to right, ${getColorsForType(elementsTypes)}`;
 
     console.log('movimentos', elementsmoves)
 
@@ -28,7 +28,7 @@ function ListPokemons({ pokemon }) {
     return (
         <>
         
-            <li className={`card `} style={{ background: `linear-gradient(to right, ${colors})` }} onClick={()=> setModalShow(true)} >
+            <li className={`card `} style={{ background: background }} onClick={()=> setModalShow(true)} >
                 <img className="card-image" alt={name} src={`https://pokeres.bastionbot.org/images/pokemon/${id}.png`} />
                 <h2 className="card-title">{id}. {name}</h2>
                 <p className="card-subtitle">{elementsTypes.join(' | ')}</p>
@@ -42,6 +42,7 @@ function ListPokemons({ pokemon }) {
                     moves={elementsmoves.join(', ')}
                     weight={weight}
                     height={height}
+                    background={background}
                      />
                     )
             }
