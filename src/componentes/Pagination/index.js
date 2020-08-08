@@ -1,7 +1,11 @@
 import React from 'react';
 import {Pagination, PaginationButton, PaginationItem} from './style';
 
-export default ({pages, onChangePage, total, currentPage}) => {
+export default ({pages, onChangePage, total, currentPage, setLoading}) => {
+  function handleOnchangePage(page){
+    setLoading(true)
+    onChangePage(page);
+  }
     return (
         <Pagination>
             <PaginationButton>
@@ -15,7 +19,7 @@ export default ({pages, onChangePage, total, currentPage}) => {
                   <PaginationItem
                     isSelect={page === currentPage}
                     key={index}
-                    onClick={(e) => onChangePage(page)}>{page}</PaginationItem>
+                    onClick={(e) => handleOnchangePage(page)}>{page}</PaginationItem>
                 ))
               }
               {

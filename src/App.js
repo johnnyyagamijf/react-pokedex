@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from 'react';
 
-import './App.css';
-
 import api from './services/api';
 import { ignoreIds } from './services/Ignore';
 import ListPokemons from './pages/ListPokemons';
 import Header from './componentes/Header';
 import Pagination from './componentes/Pagination';
+import Loader from "react-loader-spinner";
 
+import './App.css';
 
 function App() {
   const [pokemons, setPokemons] = useState([]);
   const total = 964;
   const limit = 20;
   const [pages, setPages] = useState([]);
+  const  [loading, setLoading] = useState(true);
   const [currents, setCurrentPage] = useState({ currentPage: 1, offSetPage: 0 });
 
   useEffect(() => {
@@ -28,7 +29,7 @@ function App() {
       }
 
       setPages(arrayPages);
-      await getPokemonsForId(listPokemons)
+        await getPokemonsForId(listPokemons)
     }
     onLoad();
   }, [currents.currentPage]);
@@ -47,14 +48,15 @@ function App() {
         const exists = ignoreIds.find(x => x.toString() === id);
 
         if (!exists) {
-          const response = await api.get(`/pokemon/${id}`);
-          list.push(response.data)
+         const response = await api.get(`/pokemon/${id}`)
+            list.push(response.data)
+          }
         }
-      }
       catch (err) {
         console.log('Ops ', err);
       }
     }
+    setLoading(false);
     setPokemons(list);
   }
 
@@ -65,8 +67,15 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header onChangePage={onChangePage} />
       <div className="container">
+     {loading &&  <Loader className="spinner"
+        type="TailSpin"
+        color="#ffcb05"
+        height={100}
+        width={100}
+      />}
+  
         <ul data-js="pokedex" className="pokedex">
           {
             pokemons.map(pokemon => (
@@ -79,8 +88,9 @@ function App() {
           onChangePage={onChangePage}
           total={total}
           currentPage={currents.currentPage}
+          setLoading={setLoading}
         />
-      </div>
+      </div>  
     </>
   );
 }

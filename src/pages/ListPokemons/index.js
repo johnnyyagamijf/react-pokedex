@@ -13,9 +13,6 @@ function ListPokemons({ pokemon }) {
     const elementsmoves = moves.map(move => move.move.name)
     const background = `linear-gradient(to right, ${getColorsForType(elementsTypes)}`;
 
-    console.log('movimentos', elementsmoves)
-
-
     function getColorsForType(elementsTypes) {
         let colorsw = [];
 
