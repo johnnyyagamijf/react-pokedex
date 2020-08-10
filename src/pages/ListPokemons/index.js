@@ -13,8 +13,8 @@ function ListPokemons({ pokemon }) {
     const elementsmoves = moves.map(move => move.move.name)
     const background = `linear-gradient(to right, ${getColorsForType(elementsTypes)}`;
     const[pageX, setPageX] = useState(0);
-    const[pageY, setPageY] = useState(0);
-    function getColorsForType(elementsTypes) {
+
+     function getColorsForType(elementsTypes) {
         let colorsw = [];
 
         for (let index = 0; index < elementsTypes.length; index++) {
@@ -26,8 +26,6 @@ function ListPokemons({ pokemon }) {
 
     function handleSetModel(e){
         setPageX(e.pageX);
-        setPageX(e.pageY);
-        console.log('evento', e.pageX + ' ' + e.pageY)
         setModalShow(true)
     }
     return (
@@ -39,15 +37,17 @@ function ListPokemons({ pokemon }) {
             </li>
             {
                 modalShow && (
-                         <Modal pageX={pageX} pageY={pageY}  showModal={setModalShow}
-                    name={name} 
-                    image={`https://pokeres.bastionbot.org/images/pokemon/${id}.png`}
-                    types={elementsTypes.join(' | ')}
-                    moves={elementsmoves.join(', ')}
-                    weight={weight}
-                    height={height}
-                    background={background}
-                     /> 
+                                <Modal 
+                                   pageX={pageX} 
+                                   showModal={setModalShow}
+                                   name={name} 
+                                   image={`https://pokeres.bastionbot.org/images/pokemon/${id}.png`}
+                                   types={elementsTypes.join(' | ')}
+                                   moves={elementsmoves.join(', ')}
+                                   weight={weight}
+                                   height={height}
+                                   background={background}
+                            /> 
                     )
             }
             </>
