@@ -79,6 +79,7 @@ function App() {
             />
         </div>) : 
         ( 
+          
           <>
             <ul data-js="pokedex" className="pokedex">
               {

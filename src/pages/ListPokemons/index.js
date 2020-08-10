@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 
 import './style.css';
@@ -12,7 +12,8 @@ function ListPokemons({ pokemon }) {
     const elementsTypes = types.map(typeInfo => typeInfo.type.name);
     const elementsmoves = moves.map(move => move.move.name)
     const background = `linear-gradient(to right, ${getColorsForType(elementsTypes)}`;
-
+    const[pageX, setPageX] = useState(0);
+    const[pageY, setPageY] = useState(0);
     function getColorsForType(elementsTypes) {
         let colorsw = [];
 
@@ -22,16 +23,23 @@ function ListPokemons({ pokemon }) {
 
         return (colorsw.length > 1) ? colorsw.join(',') : `white, ${colorsw[0]}`;
     }
+
+    function handleSetModel(e){
+        setPageX(e.pageX);
+        setPageX(e.pageY);
+        console.log('evento', e.pageX + ' ' + e.pageY)
+        setModalShow(true)
+    }
     return (
         <>
-            <li className={`card `} style={{ background: background }} onClick={()=> setModalShow(true)} >
+            <li className={`card `} style={{ background: background }} onClick={handleSetModel} >
                 <img className="card-image" alt={name} src={`https://pokeres.bastionbot.org/images/pokemon/${id}.png`} />
                 <h2 className="card-title">{id}. {name}</h2>
                 <p className="card-subtitle">{elementsTypes.join(' | ')}</p>
             </li>
             {
                 modalShow && (
-                         <Modal showModal={setModalShow}
+                         <Modal pageX={pageX} pageY={pageY}  showModal={setModalShow}
                     name={name} 
                     image={`https://pokeres.bastionbot.org/images/pokemon/${id}.png`}
                     types={elementsTypes.join(' | ')}
@@ -40,7 +48,6 @@ function ListPokemons({ pokemon }) {
                     height={height}
                     background={background}
                      /> 
-                       
                     )
             }
             </>

@@ -13,7 +13,6 @@ body {
 	margin: 0 auto;
 }
 
-
 h1 {
 	text-align: center;
 	font-size: 54px;
@@ -24,6 +23,8 @@ h1 {
 	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 	grid-gap: 20px;
 	padding-inline-start: 0;
+	margin-left: 20px;
+	margin-right: 20px;
 }
 
 
