@@ -24,7 +24,6 @@ function ListPokemons({ pokemon }) {
     }
     return (
         <>
-        
             <li className={`card `} style={{ background: background }} onClick={()=> setModalShow(true)} >
                 <img className="card-image" alt={name} src={`https://pokeres.bastionbot.org/images/pokemon/${id}.png`} />
                 <h2 className="card-title">{id}. {name}</h2>
@@ -32,7 +31,7 @@ function ListPokemons({ pokemon }) {
             </li>
             {
                 modalShow && (
-                    <Modal showModal={setModalShow}
+                         <Modal showModal={setModalShow}
                     name={name} 
                     image={`https://pokeres.bastionbot.org/images/pokemon/${id}.png`}
                     types={elementsTypes.join(' | ')}
@@ -40,7 +39,8 @@ function ListPokemons({ pokemon }) {
                     weight={weight}
                     height={height}
                     background={background}
-                     />
+                     /> 
+                       
                     )
             }
             </>

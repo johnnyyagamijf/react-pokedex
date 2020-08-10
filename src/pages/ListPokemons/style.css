@@ -73,3 +73,11 @@
 			transform: translateY(0);
 	}
 }
+
+.modal-item{
+	background: rgb(255, 255, 255, 0.3);
+	width: 100vw;
+	height: 10vh;
+}
+
+

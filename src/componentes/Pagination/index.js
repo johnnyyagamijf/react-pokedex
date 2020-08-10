@@ -11,7 +11,7 @@ export default ({pages, onChangePage, total, currentPage, setLoading}) => {
             <PaginationButton>
               {
                 currentPage > 1 && (
-                  <PaginationItem onClick={(e) => onChangePage(currentPage - 1)}>Previous</PaginationItem>
+                  <PaginationItem onClick={(e) => handleOnchangePage(currentPage - 1)}>Previous</PaginationItem>
                 )
               }
               {
@@ -24,7 +24,7 @@ export default ({pages, onChangePage, total, currentPage, setLoading}) => {
               }
               {
                 currentPage < pages.length && (
-                  <PaginationItem onClick={(e) => onChangePage(currentPage + 1)}>Next</PaginationItem>
+                  <PaginationItem onClick={(e) => handleOnchangePage(currentPage + 1)}>Next</PaginationItem>
                 )
               }
             </PaginationButton>

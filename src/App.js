@@ -61,36 +61,41 @@ function App() {
   }
 
   async function onChangePage(numPage) {
-    const offSet = numPage === 1 ? 0 : (numPage - 1) * 20;
+    const offSet = numPage === 1 ? 0 : (numPage - 1) * 15;
     await setCurrentPage({ currentPage: numPage, offSetPage: offSet });
   }
 
   return (
     <>
       <Header onChangePage={onChangePage} />
-      <div className="container">
-     {loading &&  <Loader className="spinner"
-        type="TailSpin"
-        color="#ffcb05"
-        height={100}
-        width={100}
-      />}
-  
-        <ul data-js="pokedex" className="pokedex">
-          {
-            pokemons.map(pokemon => (
-              <ListPokemons key={pokemon.id} pokemon={pokemon} />
-            ))
-          }
-        </ul>
-        <Pagination
-          pages={pages}
-          onChangePage={onChangePage}
-          total={total}
-          currentPage={currents.currentPage}
-          setLoading={setLoading}
-        />
-      </div>  
+      {
+        loading ? (
+        <div className="modal-item" >
+            <Loader className="spinner"
+              type="TailSpin"
+              color="#ffcb05"
+              height={100}
+              width={100}
+            />
+        </div>) : 
+        ( 
+          <>
+            <ul data-js="pokedex" className="pokedex">
+              {
+                pokemons.map(pokemon => (
+                  <ListPokemons key={pokemon.id} pokemon={pokemon} />
+                ))
+              }
+            </ul>
+            <Pagination
+              pages={pages}
+              onChangePage={onChangePage}
+              total={total}
+              currentPage={currents.currentPage}
+              setLoading={setLoading}
+            />
+          </>
+        )}
     </>
   );
 }

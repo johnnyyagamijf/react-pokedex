@@ -5,6 +5,7 @@ export const Pagination = styled.div`
     justify-content: center;
     align-items: center;
     color: #000;
+    margin-bottom: 10px;
 `;
 
 export const PaginationButton = styled.div`

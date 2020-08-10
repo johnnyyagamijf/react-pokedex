@@ -2,8 +2,6 @@
 
 body {
 	 background: #EFEFBB;
-	/* background: linear-gradient(to right, rgb(197, 230, 236), rgb(239, 187, 230));
-	color: white; */ 
 	margin: 0;
 	padding: 0;
 	font-family: 'Roboto', sans-serif;
@@ -15,12 +13,6 @@ body {
 	margin: 0 auto;
 }
 
-.spinner{
-	position: relative;
-	left: 50%;
-	top: 50px;
-	z-index: 1;
-}
 
 h1 {
 	text-align: center;
@@ -34,5 +26,15 @@ h1 {
 	padding-inline-start: 0;
 }
 
+
+.modal-item{
+	background: rgb(0, 0, 0, .1);
+	width: 100vw;
+	height: 100vh;
+	z-index: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 
 
