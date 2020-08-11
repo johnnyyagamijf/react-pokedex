@@ -2,9 +2,10 @@
 .modal-container {
     width: 100vw;
     height:100vh;
-    top: 100vw/2;
-    background: rgba(0,0,0,.5);
     position: absolute;
+    top: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.5);
     z-index: 2000;
     display: flex;
     justify-content: center;
@@ -27,6 +28,10 @@
     justify-content: center;
     align-items: center; 
     position: relative; 
+    transition: all ease 1s;
+    -webkit-transition: all ease 1s;
+    -o-transition: all ease 1s;
+
 }
 
 .subtitulo{
@@ -48,8 +53,8 @@
     flex-direction: column;
     justify-content: start;
     align-items: initial;
+    margin-top: 0;
 }
-
 
 @keyframes modal {
     from {
@@ -79,5 +84,6 @@
     color: white;
     font-family: "PT Mono", monospace;
     cursor: pointer;
-    box-shadow: 0 4px 4px 0 rgba(0,0,0,.3);
+    box-shadow: 0 4px 4px 0 rgba(0,0,0,0.3);
 }
+
